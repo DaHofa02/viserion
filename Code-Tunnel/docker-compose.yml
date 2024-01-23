@@ -1,0 +1,7 @@
+version: "3.3"
+services:
+  vscodetunnel:
+    image: root/code:latest
+    container_name: vscode_tunnel
+    volumes:
+    - ./../:/root/
