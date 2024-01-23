@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+ENV TUNNELNAME
+
 RUN apt-get update && \
     apt-get install -y git curl && \
     apt-get clean && \
@@ -9,4 +11,4 @@ RUN apt-get update && \
     tar -xf /tmp/vscode-cli.tar.gz -C /usr/bin && \
     rm /tmp/vscode-cli.tar.gz
 
-CMD [ "code", "tunnel", "--accept-server-license-terms" ]
+CMD [ "code", "tunnel", "--name $TUNNELNAME", "--accept-server-license-terms" ]
