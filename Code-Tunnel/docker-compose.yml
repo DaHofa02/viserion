@@ -1,6 +1,7 @@
 version: "3.3"
 services:
   vscodetunnel:
+    restart: unless-stopped
     image: root/code:latest
     container_name: vscode_tunnel
     volumes:
