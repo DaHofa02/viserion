@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/ui/viserion/navbar"
 
 export default function MainLayout({
     children,
@@ -6,6 +7,7 @@ export default function MainLayout({
 }) {
     return (
         <header>
+            <Navbar />
             {children}
         </header>);
 }
