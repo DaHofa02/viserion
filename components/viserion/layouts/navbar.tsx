@@ -22,7 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ThemeSwitch } from "@/components/ui/viserion/theme-switch";
+import { ThemeSwitch } from "@/components/viserion/theme-switch";
 
 interface MenuItem {
   title: string;
@@ -132,8 +132,8 @@ const Navbar = ({
     },
   ],
   auth = {
-    login: { title: "Login", url: "/auth" },
-    signup: { title: "Sign up", url: "#" },
+    login: { title: "Login", url: "/auth/login" },
+    signup: { title: "Sign up", url: "/auth/signup" },
   },
 }: NavbarProps) => {
   return (
@@ -158,10 +158,10 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
+            <Button asChild variant="outline" size="default">
               <a href={auth.login.url}>{auth.login.title}</a>
             </Button>
-            <Button asChild size="sm">
+            <Button asChild size="default">
               <a href={auth.signup.url}>{auth.signup.title}</a>
             </Button>
             <ThemeSwitch />

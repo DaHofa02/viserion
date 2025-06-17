@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/ui/viserion/navbar"
+import { Navbar } from "@/components/viserion/layouts/navbar"
 
 export default function MainLayout({
     children,
