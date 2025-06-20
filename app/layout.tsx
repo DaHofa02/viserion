@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
+import Image from "next/image"
+import Background from "@/components/viserion/layouts/background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Viserion",
-  description: "Viserion Landingpage by DaHofa",
+  title: {
+    template: '%s | Viserion',
+    default: 'Viserion',
+  },
+  description: "Viserion by DaHofa",
 };
 
 export default function RootLayout(
@@ -24,18 +29,6 @@ export default function RootLayout(
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/logo.webp" type="image/webp" sizes="any" />
-        <link rel="apple-touch-icon" href="/logo.webp" type="image/webp" sizes="any" />
-
-        <meta property="og:image" content="<generated>" />
-        <meta property="og:image:type" content="<generated>" />
-        <meta property="og:image:width" content="<generated>" />
-        <meta property="og:image:height" content="<generated>" />
-
-        <meta name="twitter:image" content="<generated>" />
-        <meta name="twitter:image:type" content="<generated>" />
-        <meta name="twitter:image:width" content="<generated>" />
-        <meta name="twitter:image:height" content="<generated>" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider
@@ -43,6 +36,7 @@ export default function RootLayout(
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
+          <Background />
           {children}
         </ThemeProvider>
       </body>

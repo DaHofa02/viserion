@@ -116,12 +116,8 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-}
-
-body {
-  background: url('/background.png');
-  background-size: 100%;
 }

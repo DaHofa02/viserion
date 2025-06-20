@@ -6,28 +6,29 @@ import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
 
-function ThemeSwitch() {
+export function ThemeSwitch() {
   const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
 
-  if (resolvedTheme == 'dark') {
-    return (
-      <>
-        <Button variant="outline" size="icon" onClick={() => setTheme("light")}>
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Button variant="outline" size="icon" onClick={() => setTheme("dark")}>
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </>
-    );
+  // Avoid hydration mismatch by delaying render until mounted
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null // Or a fallback like a spinner/skeleton
   }
-}
 
-export { ThemeSwitch }
+  const isDark = resolvedTheme === "dark"
+
+  return (
+    <Button variant="outline" size="icon" onClick={() => setTheme(isDark ? "light" : "dark")}>
+      {isDark ? (
+        <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+      ) : (
+        <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+      )}
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  )
+}

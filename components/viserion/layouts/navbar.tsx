@@ -52,7 +52,7 @@ interface NavbarProps {
   };
 }
 
-const Navbar = ({
+export const Navbar = ({
   logo = {
     url: "/",
     src: "/logo.webp",
@@ -138,7 +138,7 @@ const Navbar = ({
 }: NavbarProps) => {
   return (
     <section className="p-4 sticky top-0">
-      <div className="container-fluid p-3 px-10 border rounded-full backdrop-blur-sm">
+      <div className="container-fluid py-3 px-5 border rounded-full backdrop-blur-sm">
         {/* Desktop Menu */}
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -158,10 +158,10 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2">
-            <Button asChild variant="outline" size="default">
+            <Button asChild variant="outline" size="default" className="rounded-2xl border backdrop-blur-sm">
               <a href={auth.login.url}>{auth.login.title}</a>
             </Button>
-            <Button asChild size="default">
+            <Button asChild size="default" className="rounded-2xl border backdrop-blur-sm">
               <a href={auth.signup.url}>{auth.signup.title}</a>
             </Button>
             <ThemeSwitch />
@@ -222,7 +222,7 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+        <NavigationMenuTrigger className="rounded-2xl border backdrop-blur-sm">{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent className="bg-popover text-popover-foreground">
           {item.items.map((subItem) => (
             <NavigationMenuLink asChild key={subItem.title} className="w-80">
@@ -236,7 +236,7 @@ const renderMenuItem = (item: MenuItem) => {
 
   return (
     <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink href={item.url} className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"      >
+      <NavigationMenuLink href={item.url} className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground rounded-2xl border backdrop-blur-sm">
         {item.title}
       </NavigationMenuLink>
     </NavigationMenuItem>
@@ -281,5 +281,3 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
     </a>
   );
 };
-
-export { Navbar };

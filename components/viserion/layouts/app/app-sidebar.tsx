@@ -1,134 +1,59 @@
 "use client"
 
-import * as React from "react"
 import {
-    AudioWaveform,
-    BookOpen,
-    Bot,
-    Command,
-    GalleryVerticalEnd,
-    Settings2,
     SquareTerminal,
 } from "lucide-react"
-
-import { NavMain } from "@/components/viserion/layouts/app/nav-main"
-import { NavUser } from "@/components/viserion/layouts/app/nav-user"
-import { TeamSwitcher } from "@/components/viserion/layouts/app/team-switcher"
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
     SidebarHeader,
+    SidebarMenuSkeleton,
     SidebarRail,
 } from "@/components/ui/sidebar"
+import { NavMain } from "@/components/viserion/layouts/app/nav-main"
+import { NavUser } from "@/components/viserion/layouts/app/nav-user"
+import { DomainSwitcher } from "@/components/viserion/layouts/app/domain-switcher"
+import { Suspense } from "react"
 
 // This is sample data.
 const data = {
     user: {
         name: "shadcn",
         email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
+        avatar: "https://github.com/evilrabbit.png",
     },
-    teams: [
+    domains: [
         {
-            name: "Acme Inc",
-            logo: GalleryVerticalEnd,
-            plan: "Enterprise",
+            name: "Viserion",
+            logo: "/logo.webp",
+            domain: "viserion.cc",
         },
         {
-            name: "Acme Corp.",
-            logo: AudioWaveform,
-            plan: "Startup",
+            name: "DaHofa",
+            logo: "",
+            domain: "dahofa.xyz",
         },
         {
-            name: "Evil Corp.",
-            logo: Command,
-            plan: "Free",
+            name: "DigitalLionMotion",
+            logo: "",
+            domain: "digitallionmotion.com",
         },
     ],
     navMain: [
         {
-            title: "Playground",
-            url: "#",
+            title: "ILO",
+            url: "/app/ilo",
             icon: SquareTerminal,
             isActive: true,
             items: [
                 {
-                    title: "History",
-                    url: "#",
+                    title: "srv-00",
+                    url: "/app/ilo/srv-00",
                 },
                 {
-                    title: "Starred",
-                    url: "#",
-                },
-                {
-                    title: "Settings",
-                    url: "#",
-                },
-            ],
-        },
-        {
-            title: "Models",
-            url: "#",
-            icon: Bot,
-            items: [
-                {
-                    title: "Genesis",
-                    url: "#",
-                },
-                {
-                    title: "Explorer",
-                    url: "#",
-                },
-                {
-                    title: "Quantum",
-                    url: "#",
-                },
-            ],
-        },
-        {
-            title: "Documentation",
-            url: "#",
-            icon: BookOpen,
-            items: [
-                {
-                    title: "Introduction",
-                    url: "#",
-                },
-                {
-                    title: "Get Started",
-                    url: "#",
-                },
-                {
-                    title: "Tutorials",
-                    url: "#",
-                },
-                {
-                    title: "Changelog",
-                    url: "#",
-                },
-            ],
-        },
-        {
-            title: "Settings",
-            url: "#",
-            icon: Settings2,
-            items: [
-                {
-                    title: "General",
-                    url: "#",
-                },
-                {
-                    title: "Team",
-                    url: "#",
-                },
-                {
-                    title: "Billing",
-                    url: "#",
-                },
-                {
-                    title: "Limits",
-                    url: "#",
+                    title: "srv-01",
+                    url: "/app/ilo/srv-01",
                 },
             ],
         },
@@ -139,15 +64,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
         <Sidebar collapsible="icon" variant="floating" {...props}>
             <SidebarHeader>
-                <TeamSwitcher teams={data.teams} />
+                <Suspense fallback={<SidebarMenuSkeleton />}>
+                    <DomainSwitcher domains={data.domains} />
+                </Suspense>
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
+                <Suspense fallback={<SidebarMenuSkeleton />}>
+                    <NavMain items={data.navMain} />
+                </Suspense>
             </SidebarContent>
             <SidebarFooter>
-                <NavUser user={data.user} />
+                <Suspense fallback={<SidebarMenuSkeleton />}>
+                    <NavUser user={data.user} />
+                </Suspense>
             </SidebarFooter>
             <SidebarRail />
-        </Sidebar>
+        </Sidebar >
     )
 }
