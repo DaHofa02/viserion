@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default async function IloSrvPage(props: { params: Promise<{ srv: string, domain: string }> }) {
     const params = await props.params;
     const srv = params.srv;
-    const domain = params.domain;
 
     // temp vars
+    const domain = "viserion.cc";
     const credentials = btoa('vinatzer:1130WienLuVA');
 
     const apiUrl = getIloDomain(srv, domain);
