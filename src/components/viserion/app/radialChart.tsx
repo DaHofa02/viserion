@@ -26,7 +26,7 @@ export function RadialChart({
     unit: string;
 }
 ) {
-    var units = "";
+    let units = "";
     switch (unit) {
         case "Percent":
             units = "%";

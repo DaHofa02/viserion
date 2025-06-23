@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { AppleIcon, GithubIcon, GoogleIcon } from "@/components/viserion/icons/social"
+import Link from "next/link";
 
 export function SignUpForm({
     className,
@@ -66,9 +67,9 @@ export function SignUpForm({
             </div>
             <div className="text-center text-sm">
                 Already have an account?{" "}
-                <a href="/auth/login" className="underline underline-offset-4">
+                <Link href="/auth/login" className="underline underline-offset-4">
                     Login
-                </a>
+                </Link>
             </div>
         </form>
     )

@@ -14,8 +14,8 @@ const Header: React.FC<HeaderProps> = ({
                 <header className="flex h-16 shrink-0 items-center gap-2 sticky top-0 z-1">
                     <BreadcrumbHeader />
                     <TabsList>
-                        {tabs.map((tab) => (
-                            <TabsTrigger value={tab.value}>{titleCase(tab.value)}</TabsTrigger>
+                        {tabs.map((tab, i) => (
+                            <TabsTrigger key={tab.value + i} value={tab.value}>{titleCase(tab.value)}</TabsTrigger>
                         ))}
                     </TabsList>
                 </header>

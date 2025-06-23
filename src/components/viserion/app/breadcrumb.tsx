@@ -13,7 +13,7 @@ export default function Breadcrumbs() {
 
     const breadcrumbs = segments.map((segment, index) => {
         const href = '/' + segments.slice(0, index + 1).join('/');
-        var label = titleCase(segment);
+        let label = titleCase(segment);
         /*if (segment === "app") {
             return;
         }*/

@@ -3,8 +3,6 @@ import { DualLineChart } from "@/components/viserion/app/lineChart";
 import { fetchIloFans, fetchIloPower, fetchIloTemperatures } from "@/lib/ilo";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChartContainer } from "@/components/ui/chart";
-import { RadialBarChart, PolarGrid, RadialBar, PolarRadiusAxis, Label } from "recharts";
 
 export async function IloFansTab({
     apiUrl,

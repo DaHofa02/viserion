@@ -35,7 +35,7 @@ export function fetchWithNoSSL({
                 try {
                     resolve(JSON.parse(data));
                 } catch (err) {
-                    reject(new Error('Invalid JSON response'));
+                    reject(new Error('Invalid JSON response ' + err));
                 }
             });
         });
