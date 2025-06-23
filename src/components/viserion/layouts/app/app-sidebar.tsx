@@ -1,7 +1,8 @@
 "use client"
 
 import {
-    SquareTerminal,
+    MonitorUp,
+    Network,
 } from "lucide-react"
 import {
     Sidebar,
@@ -42,9 +43,14 @@ const data = {
     ],
     navMain: [
         {
+            title: "DNS",
+            url: "/app/dns",
+            icon: Network,
+        },
+        {
             title: "ILO",
             url: "/app/ilo",
-            icon: SquareTerminal,
+            icon: MonitorUp,
             isActive: true,
             items: [
                 {
