@@ -46,6 +46,17 @@ const data = {
             title: "DNS",
             url: "/app/dns",
             icon: Network,
+            isActive: true,
+            items: [
+                {
+                    title: "Cloudflare",
+                    url: "/app/dns/cloudflare",
+                },
+                {
+                    title: "Local",
+                    url: "/app/dns/local",
+                },
+            ],
         },
         {
             title: "ILO",
