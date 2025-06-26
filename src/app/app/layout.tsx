@@ -39,7 +39,9 @@ export default function MainLayout({
             <AppSidebar />
             <SidebarInset>
                 <Header {...(showTabs ? { tabs } : {})}>
-                    {children}
+                    <div className="mx-3">
+                        {children}
+                    </div>
                 </Header>
             </SidebarInset>
         </SidebarProvider >

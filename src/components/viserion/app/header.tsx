@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({
     <>
         {tabs ? (
             <Tabs defaultValue={tabs[0].value} className="w-10/10">
-                <header className="flex h-16 shrink-0 items-center gap-2 sticky top-0 z-1">
+                <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                     <BreadcrumbHeader />
                     <TabsList>
                         {tabs.map((tab, i) => (
@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({
             </Tabs>
         ) : (
             <>
-                <header className="flex h-16 shrink-0 items-center gap-2 sticky top-0 z-1">
+                <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                     <BreadcrumbHeader />
                 </header>
                 <section>

@@ -14,9 +14,6 @@ export default function Breadcrumbs() {
     const breadcrumbs = segments.map((segment, index) => {
         const href = '/' + segments.slice(0, index + 1).join('/');
         let label = titleCase(segment);
-        /*if (segment === "app") {
-            return;
-        }*/
 
         if (index === 0) {
             label = "Dashboard";

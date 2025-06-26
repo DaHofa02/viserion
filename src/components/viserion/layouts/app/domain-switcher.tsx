@@ -45,7 +45,7 @@ export function DomainSwitcher({
                             size="lg"
                             className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                         >
-                            <div className="text-sidebar-primary-foreground flex aspect-square size-10 items-center justify-center rounded-lg">
+                            <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                                 <Avatar className="size-9 md:size-10 rounded-lg">
                                     <AvatarImage src={activeDomain.logo} alt={activeDomain.name} />
                                     <AvatarFallback className="rounded-lg">{activeDomain.name.slice(0, 2).toUpperCase()}</AvatarFallback>

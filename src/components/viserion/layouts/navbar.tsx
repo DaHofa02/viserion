@@ -146,7 +146,7 @@ export const Navbar = ({
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} className="max-h-8" alt={logo.alt} />
+              <Image src={logo.src} className="max-h-8 max-w-8" alt={logo.alt} width={100} height={100} />
               <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
               </span>
@@ -175,7 +175,7 @@ export const Navbar = ({
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} className="max-h-8" alt={logo.alt} />
+              <Image src={logo.src} className="max-h-8 max-w-8" alt={logo.alt} width={100} height={100} />
             </Link>
             <div className="flex items-end gap-2">
               <ThemeSwitch />

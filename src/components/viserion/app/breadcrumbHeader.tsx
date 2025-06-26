@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/viserion/app/breadcrumb";
 
 export default function BreadcrumbHeader() {
     return (
-        <div className="flex items-center p-1 px-4 border rounded-3xl shadow-sm backdrop-blur-sm">
+        <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator
                 orientation="vertical"
